@@ -24,7 +24,7 @@ class AssetExtension extends  \Twig_Extension {
     }
 
     public function asset($url) {
-        return $this->app['request']->getBaseUrl().$url;
+        return sprintf('%s/%s', $this->app['request']->getBasePath(), ltrim($url, '/'));
     }
 
     /**

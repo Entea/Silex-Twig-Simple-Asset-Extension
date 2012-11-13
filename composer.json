@@ -1,0 +1,16 @@
+{
+    "name": "entea/silex-twig-simple-asset-extension",
+    "type": "library",
+    "license": "MIT",
+    "authors": [{"name": "Nurlan Turdaliev", "role": "Developer"}],
+    "description": "Simple twig asset function for Silex",
+    "keywords": ["silex", "twig", "asset"],
+    "homepage": "http://github.com/Entea/Silex-Twig-Simple-Asset-Extension",
+    "require": {
+        "php": ">=5.3.0",
+        "twig/twig": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {"Entea": "."}
+    }
+}

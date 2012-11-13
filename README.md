@@ -1,4 +1,4 @@
-## Simple twig extension for Silex, userful to create links to assets
+## Simple twig extension for Silex, for creating links to assets
 
 ### Usage
 ```

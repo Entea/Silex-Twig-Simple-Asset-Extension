@@ -1,6 +1,6 @@
-This is a simple twig extension for silex to create asset links
+## Simple twig extension for Silex, userful to create links to assets
 
-Usage
+### Usage
 ```
 require_once __DIR__ . '/silex.phar';
 
@@ -31,3 +31,16 @@ And then, in your twig file:
 ```
 {{asset('/style/hello.css')}}
 ```
+
+### Installation
+
+#### Via composer:
+```
+require: "entea/silex-twig-simple-asset-extension": "dev-master"
+```
+or 
+```
+require: "entea/silex-twig-simple-asset-extension": "v1.0.0"
+```
+
+Or simply **checkout this repo** :)

@@ -32,6 +32,9 @@ And then, in your twig file:
 {{asset('/style/hello.css')}}
 ```
 
+### Properties
+ - **asset.directory**: Your asset directory
+
 ### Installation
 
 #### Via composer:

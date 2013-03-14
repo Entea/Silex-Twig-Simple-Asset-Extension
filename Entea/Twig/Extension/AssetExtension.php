@@ -7,14 +7,16 @@
 
 namespace Entea\Twig\Extension;
 
-class AssetExtension extends  \Twig_Extension {
+class AssetExtension extends  \Twig_Extension 
+{
     private $app;
+    private $options;
 
-    function __construct(\Silex\Application $app)
+    function __construct(\Silex\Application $app, array $options = array())
     {
         $this->app = $app;
+        $this->options = $options;
     }
-
 
     public function getFunctions()
     {
@@ -23,8 +25,13 @@ class AssetExtension extends  \Twig_Extension {
         );
     }
 
-    public function asset($url) {
-        return sprintf('%s/%s', $this->app['request']->getBasePath(), ltrim($url, '/'));
+    public function asset($url) 
+    {
+        $assetDir = isset($this->options['asset.directory']) ? 
+            $this->options['asset.directory'] : 
+            $this->app['request']->getBasePath();
+
+        return sprintf('%s/%s', $assetDir, ltrim($url, '/'));
     }
 
     /**

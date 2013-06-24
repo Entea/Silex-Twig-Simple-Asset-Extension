@@ -30,9 +30,9 @@ class AssetExtension extends  \Twig_Extension
         $assetDir = isset($this->options['asset.directory']) ? 
             $this->options['asset.directory'] : 
             $this->app['request']->getBasePath();
-		
-		if(strpos($assetDir, '/') !== 0)
-			$assetDir = '/'.$assetDir;
+
+        if(strpos($assetDir, '/') !== 0)
+            $assetDir = '/'.$assetDir;
 		
         return sprintf('%s/%s', $assetDir, ltrim($url, '/'));
     }

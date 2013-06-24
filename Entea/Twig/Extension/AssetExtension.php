@@ -21,7 +21,7 @@ class AssetExtension extends  \Twig_Extension
     public function getFunctions()
     {
         return array(
-            'asset'    => new \Twig_Function_Method($this, 'asset'),
+            'asset' => new \Twig_Function_Method($this, 'asset'),
         );
     }
 
@@ -30,7 +30,10 @@ class AssetExtension extends  \Twig_Extension
         $assetDir = isset($this->options['asset.directory']) ? 
             $this->options['asset.directory'] : 
             $this->app['request']->getBasePath();
-
+		
+		if(strpos($assetDir, '/') !== 0)
+			$assetDir = '/'.$assetDir;
+		
         return sprintf('%s/%s', $assetDir, ltrim($url, '/'));
     }
 

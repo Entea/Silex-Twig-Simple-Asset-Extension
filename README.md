@@ -31,9 +31,14 @@ And then, in your twig file:
 ```
 {{asset('/style/hello.css')}}
 ```
+or with a specific version which overrides the global version
+```
+{{asset('/style/hello.css', '1.2')}}
+```
 
 ### Properties
  - **asset.directory**: Your asset directory
+ - **asset.version**: Your asset global version (default: 1.0)
 
 ### Installation
 

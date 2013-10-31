@@ -12,8 +12,17 @@ class AssetExtension extends \Twig_Extension
     private $app;
     private $options;
     
-    private $_assetDirectory;
-    private $_assetVersion;
+    /**
+     * Asset directory
+     * @var string
+     */
+    private $directory;
+
+    /**
+     * Asset version
+     * @var string
+     */
+    private $version = NULL;
     
     /**
      * Constructor 
@@ -31,13 +40,12 @@ class AssetExtension extends \Twig_Extension
     {   
         parent::initRuntime($environment);
         
-        $this->_assetDirectory = $this->app['request']->getBasePath();
+        $this->directory = $this->app['request']->getBasePath();
         if(isset($this->options['asset.directory']))
-            $this->_assetDirectory = $this->options['asset.directory'];
+            $this->directory = $this->options['asset.directory'];
         
-        $this->_assetVersion = '1.0';
         if(isset($this->options['asset.version']))
-            $this->_assetVersion = $this->options['asset.version'];
+            $this->version = $this->options['asset.version'];
     }
     
     public function getFunctions()
@@ -56,13 +64,13 @@ class AssetExtension extends \Twig_Extension
      */
     public function asset($url, $version=NULL) 
     {
+        $versionToUse = $this->version;
         if($version !== NULL)
-            $this->_assetVersion = $version;
-            
-        return sprintf('%s/%s?v=%s', 
-                $this->_assetDirectory, 
-                ltrim($url, '/'),
-                $this->_assetVersion);
+            $versionToUse = $version;
+        
+        $assetPath = $this->directory.'/'.ltrim($url, '/');
+        $assetPath.= $versionToUse !== NULL ? '?v='.$versionToUse : '';
+        return $assetPath;
     }
 
     /**

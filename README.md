@@ -43,7 +43,7 @@ require: "entea/silex-twig-simple-asset-extension": "dev-master"
 ```
 or 
 ```
-require: "entea/silex-twig-simple-asset-extension": "v1.0.0"
+require: "entea/silex-twig-simple-asset-extension": "v1.0.1"
 ```
 
 Or simply **checkout this repo** :)
